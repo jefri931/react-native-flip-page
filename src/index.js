@@ -85,16 +85,12 @@ class FlipPage extends React.Component {
     }
   }
 
-  lastPage() {
-    return this.props.children.length - 1;
-  }
-
   isOnFirstPage() {
     return this.state.page === 0;
   }
 
   isOnLastPage() {
-    return this.state.page === this.lastPage();
+    return this.state.page === this.props.children.length - 1;
   }
 
   rotateFirstHalf(angle) {
@@ -425,7 +421,7 @@ FlipPage.propTypes = {
   onPageChange: PropTypes.func,
   reverse: PropTypes.bool,
   swipeEnabled: PropTypes.bool,
-  programmaticAnimationSpeed: PropTypes.number,
+  programaticAnimationSpeed: PropTypes.number,
 };
 
 FlipPage.defaultProps = {
@@ -435,7 +431,7 @@ FlipPage.defaultProps = {
   onPageChange: () => {},
   reverse: false,
   swipeEnabled: true,
-  programmaticAnimationSpeed: 10,
+  programaticAnimationSpeed: 10,
 };
 
 class FlipPagePage extends React.PureComponent {
